@@ -1,0 +1,69 @@
+<resources>
+    <!--info del header-->
+    <string name="app_name">Covid19Status</string>
+    <string name="nav_header_title">Covid-19 Status</string>
+    <string name="nav_header_subtitle">Información actualizada de Argentina del Covid-19</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_share">Compartir Aplicación</string>
+
+    <!--Labels de toolbars de los diferentes fragments-->
+    <string name="menu_info_actual">Información Actual</string>
+    <string name="menu_instrucciones">Instrucciones</string>
+    <string name="menu_info_internacional">Información Internacional</string>
+    <string name="menu_sobre_nosotros">Sobre Nosotros</string>
+
+    <!--TODO: Informacion resumen de presentacion, la debe cargar un fragment al principio-->
+    <string name="resume">Bienvenido a Covid-19 Status para móvil. Aquí podrás consultar, principalmente, la información sobre el estado actual deL Covid-19 en Argentina. Además, podras consultar informacion internacional, compartir con tus amigos información y mucho mas...</string>
+    <string name="InfoInicio">Resumen</string>
+
+    <!--TODO: Strings de instructivo-->
+
+    <string name="Instructivo_resumen_titulo">Instrucciones: </string>
+    <string name="Instructivo_resumen">En Covid-19 Status queremos brindarle la información necesaria del lugar donde vive, para que tome todos los recaudos necesarios y se proteja.</string>
+
+    <string name="Instructivo_menu_titulo">Menú lateral:</string>
+    <string name="Instructivo_menu">En el menú lateral izquierdo, tiene todas las acciones que puede realizar con Covid-19 Status.
+Aquí se explicaran para que sirven cada una de esas opciones.
+</string>
+
+    <string name="Instructivo_opcion_1_titulo">Información Actual:</string>
+    <string name="Instructivo_opcion_1">En la información actual, podrá consultar la información de la provincia a la que pertenece, sobre la situación actual del Covid-19. Esta opción tiene dos modos:
+1- Si posee la geolocalización activada, el sistema mostrara la información de la provincia a la que pertenece.
+2- Si la geolocalización esta desactivada, el sistema desplegará todas las provincias para que seleccione la que desee consultar.
+</string>
+
+    <string name="Instructivo_opcion_2_titulo">Instrucciones: </string>
+    <string name="Instructivo_opcion_2">En la sección Instrucciones se explica en detalle el funcionamiento de la aplicación Covid-19 Status. Queremos agradecerle de parte del Staff de Covid-19 Status, por confiar en nosotros, y esperamos que le seamos de ayuda.</string>
+
+    <string name="Instructivo_opcion_3_titulo">Información Internacional:</string>
+    <string name="Instructivo_opcion_3">En esta sección, cargará nuestro sistema web de Covid-19 Status, en el que podrá consultar la información actual en cualquier país del mundo. Para saber más como utilizar esta sección, visite: https://leosalgueiro.github.io/tpi/#.</string>
+
+    <string name="Instructivo_opcion_4_titulo">Sobre Nosotros:</string>
+    <string name="Instructivo_opcion_4">En esta sección, podrá conocernos más, quienes somos, donde nos ubicamos y cuales son nuestros objetivos para con la comunidad. Y nuevamente, agradecemos que confíe en nosotros.</string>
+
+
+    <!--TODO: strings para sobre nosotros fragment-->
+    <string name="SobreNosotros_quienesSomos_titulo">¿Quiénes somos?</string>
+    <string name="SobreNosotros_quienesSomos">Nosotros somos dos estudiantes de la Universidad Nacional Arturo Jauretche, que proponemos acercarle la información a la mayor cantidad de usuarios de manera simple y agradable.</string>
+
+    <string name="SobreNosotros_nuesrtoObjetivo_titulo">¿Nuestro objetivo? </string>
+    <string name="SobreNosotros_nuestroObjetivo">En COVID-19 status, nos dedicamos a hacer que el servicio de información sea más actual y seguro posible. Estamos invirtiendo significativamente en tecnología, personas y liderazgo para transformar nuestro servicio en brindarles la información más actual posible.</string>
+
+    <string name="SobreNosotros_dondeNosUbicamos_titulo">¿Dónde nos ubicamos? </string>
+    <string name="SobreNosotros_dondeNosUbicamos">COVID-19 status, es una compañía pública, ubicada en Calle 14, frente a la plaza Moreno, ciudad de La Plata, Provincia de Buenos Aires </string>
+
+    <string name="SobreNosotros_FundadoPor_titulo">Fundado por: </string>
+    <string name="mailfede">Federico Montes de Oca: fedemdo@gmail.com</string>
+    <string name="mailleo">Leonel Navarro: dismoi.leo@gmail.com</string>
+
+    <string name="SobreNosotros_compartenos_titulo">Califícandonos en la tienda con 5 estrellas nos ayudaría mucho: </string>
+
+    <string name="btn_calificanos">Calificanos</string>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="BotonNext">botonNext</string>
+</resources>

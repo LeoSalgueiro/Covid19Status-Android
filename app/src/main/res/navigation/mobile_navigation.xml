@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/nav_instrucciones"> <!--Esto debe apuntar a un iniciador -->
+
+
+
+    <fragment
+        android:id="@+id/nav_info_actual"
+        android:name="com.example.covid19status.InfoActualFragment"
+        android:label="@string/menu_info_actual"
+        tools:layout="@layout/fragment_info_actual"/>
+
+    <fragment
+        android:id="@+id/nav_instrucciones"
+        android:name="com.example.covid19status.InstruccionesFragment"
+        android:label="@string/menu_instrucciones"
+        tools:layout="@layout/fragment_instrucciones" />
+
+    <fragment
+        android:id="@+id/nav_internacional"
+        android:name="com.example.covid19status.InternacionalFragment"
+        android:label="@string/menu_info_internacional"
+        tools:layout="@layout/fragment_internacional" />
+
+    <fragment
+        android:id="@+id/nav_sobre_nosotros"
+        android:name="com.example.covid19status.SobreNosotrosFragment"
+        android:label="@string/menu_sobre_nosotros"
+        tools:layout="@layout/fragment_maps" />
+
+
+</navigation>
