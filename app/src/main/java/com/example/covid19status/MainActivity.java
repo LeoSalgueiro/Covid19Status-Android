@@ -1,38 +1,49 @@
 package com.example.covid19status;
 
+import android.Manifest;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
-import android.view.ViewGroup;
-
-
-import com.example.covid19status.Entidades.Provincia;
-import com.example.covid19status.Interfaces.IComunicaFragment;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
-import androidx.core.view.GravityCompat;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import java.io.File;
+import com.example.covid19status.Entidades.Provincia;
+import com.example.covid19status.Interfaces.IComunicaFragment;
+import com.example.covid19status.Responses.UbicacionResponse;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements IComunicaFragment {
+    // log tag
+    public static final String TAG = "MainActivity";
 
+    // ubicacion
+    private FusedLocationProviderClient fusedLocationClient;
+    int LOCATION_REQUEST_CODE = 1337;
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -61,6 +72,75 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            getLastLocation();
+        } else {
+            askLocationPermission();
+        }
+   }
+
+    private void getLastLocation(){
+        Task<Location> locationTask = fusedLocationClient.getLastLocation();
+        locationTask.addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if(location != null){
+                    // tenemos la posicion
+                    Log.d(TAG, "onSuccess" + location.toString());
+                    Log.d(TAG, "onSuccess latitude" + location.getLatitude());
+                    Log.d(TAG, "onSuccess longitude" + location.getLongitude());
+
+                    Call<UbicacionResponse> call = ArgGeorefHttpClient.getGeorefService().enriquecerUbicacion(-27.2741, -66.7529); // catamarca
+                    call.enqueue(new Callback<UbicacionResponse>() {
+                        @Override
+                        public void onResponse(Call call, Response response) {
+                            if(response.isSuccessful()){
+                                UbicacionResponse ubicacionResponse = (UbicacionResponse) response.body();
+                                Log.d(TAG, "Body: " + ubicacionResponse.getUbicacion().getProvincia().getNombre());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call call, Throwable t) {
+                            Log.d(TAG, "Error: " +  t.getLocalizedMessage());
+                        }
+                    });
+                } else {
+                    Log.d(TAG, "onSuccess location was null");
+                }
+            }
+        });
+    }
+
+    private void askLocationPermission(){
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
+                Log.d(TAG, "mostrar dialog");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
+
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == LOCATION_REQUEST_CODE) {
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                // permission granted
+                getLastLocation();
+            } else {
+                // permision dont granted
+            }
+        }
     }
 
     @Override
