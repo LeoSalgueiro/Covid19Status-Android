@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -22,7 +23,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.covid19status.Entidades.Provincia;
+import com.example.covid19status.Database.UbicacionUsuarioDatabase;
+import com.example.covid19status.EntidadesDB.UbicacionUsuario;
 import com.example.covid19status.Interfaces.IComunicaFragment;
 import com.example.covid19status.Responses.ProvinciaResponse;
 import com.example.covid19status.Responses.UbicacionResponse;
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
     @Override
     public void onStart() {
         super.onStart();
+        getUltimaUbicacionDelUsuario();
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             getLastLocation();
         } else {
@@ -113,6 +116,15 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
                             if(response.isSuccessful()){
                                 UbicacionResponse ubicacionResponse = (UbicacionResponse) response.body();
                                 Log.d(TAG, "Body: " + ubicacionResponse.getUbicacion().getProvincia().getNombre());
+
+                                // escribir en BD
+                                UbicacionUsuario ubicacionUsuario = new UbicacionUsuario(ubicacionResponse.getUbicacion().getProvincia().getId(),
+                                        ubicacionResponse.getUbicacion().getProvincia().getNombre(),
+                                        ubicacionResponse.getUbicacion().getDepartamento().getId(),
+                                        ubicacionResponse.getUbicacion().getDepartamento().getNombre());
+
+                                InsertAsyncTask insertAsyncTask = new InsertAsyncTask();
+                                insertAsyncTask.execute(ubicacionUsuario);
                             }
                         }
 
@@ -199,5 +211,30 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
                 .commit();
     }
 
+    class InsertAsyncTask extends AsyncTask<UbicacionUsuario, Void, Void> {
 
+        @Override
+        protected Void doInBackground(UbicacionUsuario... ubicacionUsuarios) {
+
+            UbicacionUsuarioDatabase.getInstance(getApplicationContext()).ubicacionUsuarioDao().insertUbicacionUsuario(ubicacionUsuarios[0]);
+
+            return null;
+        }
+    }
+
+    // implementar lo siguente en el lugar donde se quiera recuperar la ultima ubicacion del usuario
+    public void getUltimaUbicacionDelUsuario(){
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                UbicacionUsuario ultimaUbicacionUsuario = UbicacionUsuarioDatabase.getInstance(getApplicationContext()).ubicacionUsuarioDao().selectUltimaUbicacionDelUsuario();
+                if(ultimaUbicacionUsuario != null){
+                    Log.d(TAG, "run: " + ultimaUbicacionUsuario.toString());
+                } else {
+                    Log.d(TAG, "run: returned null");
+                }
+            }
+        });
+        thread.start();
+    }
 }
