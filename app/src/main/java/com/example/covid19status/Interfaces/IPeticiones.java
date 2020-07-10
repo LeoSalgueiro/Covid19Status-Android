@@ -12,7 +12,7 @@ import retrofit2.http.Path;
 public interface IPeticiones {
 
     @GET("status/latest/provincias/{id}")
-    Call<ProvinciaResponse> getProvinciaId(@Path("id") int groupId);
+    Call<ProvinciaResponse> getProvinciaId(@Path("id") String groupId);
 
 
 

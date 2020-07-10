@@ -24,6 +24,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.covid19status.Entidades.Provincia;
 import com.example.covid19status.Interfaces.IComunicaFragment;
+import com.example.covid19status.Responses.ProvinciaResponse;
 import com.example.covid19status.Responses.UbicacionResponse;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -37,7 +38,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements IComunicaFragment {
+public class MainActivity extends AppCompatActivity {
     // log tag
     public static final String TAG = "MainActivity";
 
@@ -175,8 +176,5 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
     }
 
 
-    @Override
-    public void enviarProvincia(Provincia provincia) {
-        //DetalleFragment = new DEtalleProvincia
-    }
+
 }
