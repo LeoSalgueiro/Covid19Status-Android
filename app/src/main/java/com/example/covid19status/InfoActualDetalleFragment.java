@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,8 +60,11 @@ public class InfoActualDetalleFragment extends Fragment {
         ProvinciaResponse provinciaRecibido = null;
 
         if(objetoRecibido != null){
+
             provinciaRecibido = (ProvinciaResponse) objetoRecibido.getSerializable("detalleProvincia");
+            Log.v("hayobjeto", ""+provinciaRecibido.getTerritorioNombre());
             nombreProvincia.setText(provinciaRecibido.getTerritorioNombre());
+
         }
         return vista;
     }

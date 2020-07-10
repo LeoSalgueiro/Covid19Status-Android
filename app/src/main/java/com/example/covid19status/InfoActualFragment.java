@@ -28,7 +28,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class InfoActualFragment extends Fragment implements IComunicaFragment{
+public class InfoActualFragment extends Fragment {
 
     private ArrayList<Provincia> listaProvincias;
     private AdapterProvincias adapter;
@@ -38,7 +38,7 @@ public class InfoActualFragment extends Fragment implements IComunicaFragment{
     private InfoActualDetalleFragment detalleFragment;
 
 
-    private Context activity;
+    private Activity activity;
     private IComunicaFragment interfaceComunicacionEntreFragment;
 
     public InfoActualFragment() {
@@ -103,8 +103,6 @@ public class InfoActualFragment extends Fragment implements IComunicaFragment{
                 //Toast.makeText(getContext(),"Seleccionó: "+ nombre,Toast.LENGTH_SHORT).show();
                 //interfaceComunicacionEntreFragment.enviarProvincia(listaProvincias.get(recycler.getChildAdapterPosition(v)));
 
-                //probemos la peticion
-        Log.v("idprov", idProvin+"");
 
                 Call <ProvinciaResponse> call = ApiClient.getApiService().getProvinciaId(idProvin);
                 call.enqueue(new  Callback <ProvinciaResponse>() {
@@ -112,10 +110,10 @@ public class InfoActualFragment extends Fragment implements IComunicaFragment{
                     public void onResponse(Call call, @NonNull Response response) {
                         if(response.isSuccessful()){
                             ProvinciaResponse respuesta = (ProvinciaResponse) response.body();
-                              Log.v("datos",((Map) respuesta.getConfirmados()).get("Nuevos")+"");
+
                             Toast.makeText(getContext(),"Seleccionó: "+ respuesta.getTerritorioNombre(),Toast.LENGTH_LONG).show();
 
-                            enviarProvincia(respuesta);
+                            interfaceComunicacionEntreFragment.enviarProvincia(respuesta);
                         }
 
                     }
@@ -136,27 +134,14 @@ public class InfoActualFragment extends Fragment implements IComunicaFragment{
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
-/*
+
         if(context instanceof Activity){
-            this.activity =  getContext();
-            interfaceComunicacionEntreFragment = (IComunicaFragment) this.getContext();
+            this.activity = (Activity) context;
+            interfaceComunicacionEntreFragment = (IComunicaFragment) this.activity;
         }
-*/
+
     }
 
 
-    @Override
-    public void enviarProvincia(ProvinciaResponse provincia) {
-        detalleFragment = new InfoActualDetalleFragment();
-        Bundle bundleEnviar = new Bundle();
-        bundleEnviar.putSerializable("detalleProvincia", provincia);
-        detalleFragment.setArguments(bundleEnviar);
 
-        //cargo el detalle
-        getActivity().getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.drawer_layout,detalleFragment)
-                .addToBackStack(null)
-                .commit();
-    }
 }

@@ -38,7 +38,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements IComunicaFragment{
+
+    //master detail
+    InfoActualFragment master;
+    InfoActualDetalleFragment detalle;
+
     // log tag
     public static final String TAG = "MainActivity";
 
@@ -75,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        //master = new InfoActualFragment();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout,master).commit();
     }
 
     @Override
@@ -175,6 +183,21 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+    @Override
+    public void enviarProvincia(ProvinciaResponse provincia) {
+        InfoActualDetalleFragment detalleFragment = new InfoActualDetalleFragment();
+        Bundle bundleEnviar = new Bundle();
+        bundleEnviar.putSerializable("detalleProvincia", provincia);
+        detalleFragment.setArguments(bundleEnviar);
+
+        //cargo el detalle
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.drawer_layout,detalleFragment)
+                .addToBackStack(null)
+                .commit();
+    }
 
 
 }
