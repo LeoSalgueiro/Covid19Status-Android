@@ -12,6 +12,11 @@ import android.widget.TextView;
 
 import com.example.covid19status.Responses.ProvinciaResponse;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Map;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +26,14 @@ import com.example.covid19status.Responses.ProvinciaResponse;
 public class InfoActualDetalleFragment extends Fragment {
 
     TextView nombreProvincia;
+    TextView confirmadosNuevos;
+    TextView confirmadosTotal;
+    TextView muertosNuevos;
+    TextView muertosTotal;
+    TextView fecha;
+
+
+
     public InfoActualDetalleFragment() {
         // Required empty public constructor
     }
@@ -55,15 +68,38 @@ public class InfoActualDetalleFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View vista = inflater.inflate(R.layout.fragment_info_actual_detalle, container, false);
-        nombreProvincia = vista.findViewById(R.id.textViewDetalle);
+        nombreProvincia = vista.findViewById(R.id.detalleNombreProvincia);
+        confirmadosNuevos = vista.findViewById(R.id.detalleConfirmadosNuevos);
+        confirmadosTotal = vista.findViewById(R.id.detalleConfirmadosTotal);
+        muertosNuevos = vista.findViewById(R.id.detalleMuertesNuevos);
+        muertosTotal = vista.findViewById(R.id.detalleMuertesTotal);
+        fecha = vista.findViewById(R.id.ultimaActualizacion);
+        
         Bundle objetoRecibido = getArguments();
         ProvinciaResponse provinciaRecibido = null;
 
         if(objetoRecibido != null){
 
             provinciaRecibido = (ProvinciaResponse) objetoRecibido.getSerializable("detalleProvincia");
-            Log.v("hayobjeto", ""+provinciaRecibido.getTerritorioNombre());
+            Map confirmadosverdadero = (Map)provinciaRecibido.getConfirmados();
+            Map muertesverdadero = (Map)provinciaRecibido.getMuertes();
+
+            String confNuevos =  confirmadosverdadero.get("Nuevos").toString().split("\\.")[0];
+            String confTotal = confirmadosverdadero.get("Total").toString().split("\\.")[0];
+            String muerNuevos = muertesverdadero.get("Nuevos").toString().split("\\.")[0];
+            String muerTotal =  muertesverdadero.get("Total").toString().split("\\.")[0];
+
+
+            String [] date = provinciaRecibido.getFecha().split("-");
+            String fechaNueva = date[2]+"/"+date[1]+"/"+date[0];
+            Log.v("tagtag",date[2]+"/"+date[1]+"/"+date[0]);
+
             nombreProvincia.setText(provinciaRecibido.getTerritorioNombre());
+            confirmadosNuevos.setText("Nuevos: "+confNuevos);
+            confirmadosTotal.setText("Total: "+confTotal);
+            muertosNuevos.setText("Nuevas: "+muerNuevos);
+            muertosTotal.setText("Total: "+muerTotal);
+            fecha.setText(fechaNueva);
 
         }
         return vista;

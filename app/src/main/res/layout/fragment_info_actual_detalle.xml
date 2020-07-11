@@ -2,23 +2,198 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cargarDetalleHere"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/cargarDetalleHere"
     android:background="#ffffff"
+    android:orientation="vertical"
+    android:clickable="true"
     >
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:buttonGravity="top"
 
-    <TextView
-        android:id="@+id/textViewDetalle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="364dp"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="#D1CFCF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.143">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detalleProvinciaTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+
+                android:text="Provincia"
+                android:textSize="30sp"
+                android:textStyle="bold"
+
+                app:layout_constraintBottom_toBottomOf="@+id/detalleNombreProvincia"
+                app:layout_constraintStart_toStartOf="@+id/toolbar2"
+
+                />
+
+            <TextView
+                android:id="@+id/detalleNombreProvincia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+
+                android:text="detalleNombreProvincia"
+                android:textSize="24sp"
+
+                app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosTitulo"
+                app:layout_constraintStart_toStartOf="@+id/detalleProvinciaTitulo" />
+
+            <TextView
+                android:id="@+id/detalleConfirmadosTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+
+                android:text="Confirmados"
+                android:textSize="30sp"
+                android:textStyle="bold"
+
+                app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosNuevos"
+                app:layout_constraintStart_toStartOf="@+id/detalleNombreProvincia" />
+
+
+            <TextView
+                android:id="@+id/detalleConfirmadosNuevos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+
+                android:text="DetalleConfirmados Nuevas"
+                android:textSize="24sp"
+
+
+                app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosTotal"
+                app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosTitulo" />
+
+            <TextView
+                android:id="@+id/detalleConfirmadosTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+
+                android:text="Detalle Confirmados Total"
+                android:textSize="24sp"
+
+
+                app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesNuevos"
+                app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosNuevos" />
+
+            <TextView
+                android:id="@+id/detalleMuertesTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+
+
+                android:text="Muertes"
+                android:textSize="30sp"
+                android:textStyle="bold"
+
+                app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesNuevos"
+                app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosTotal" />
+
+            <TextView
+                android:id="@+id/detalleMuertesNuevos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+
+                android:text="Detalle Muertes Nuevas"
+                android:textSize="24sp"
+
+                app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesTotal"
+                app:layout_constraintStart_toStartOf="@+id/detalleMuertesTitulo" />
+
+
+            <TextView
+                android:id="@+id/detalleMuertesTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+
+
+                android:text="Detalle Muertes Total"
+                android:textSize="24sp"
+
+                app:layout_constraintBottom_toBottomOf="@+id/ultimaActualizacionTitulo"
+                app:layout_constraintStart_toStartOf="@+id/detalleMuertesNuevos" />
+
+
+            <TextView
+                android:id="@+id/ultimaActualizacionTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+
+                android:text="Ultima Actualización"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/ultimaActualizacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:text="YYYY-MM-DD"
+                android:textColor="#3E3E3E"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/detalleBtnCompartir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compartir Informacion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.889"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.407" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

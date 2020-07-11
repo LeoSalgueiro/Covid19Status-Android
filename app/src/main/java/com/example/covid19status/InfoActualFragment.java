@@ -112,6 +112,7 @@ public class InfoActualFragment extends Fragment {
                             ProvinciaResponse respuesta = (ProvinciaResponse) response.body();
 
                             Toast.makeText(getContext(),"Seleccionó: "+ respuesta.getTerritorioNombre(),Toast.LENGTH_LONG).show();
+                    Log.v("detalle"," "+respuesta.getConfirmados());
 
                             interfaceComunicacionEntreFragment.enviarProvincia(respuesta);
                         }
