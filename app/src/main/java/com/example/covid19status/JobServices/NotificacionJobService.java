@@ -56,7 +56,7 @@ public class NotificacionJobService extends JobService {
 
                                 // push notif
                                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplication().getBaseContext(), CHANNEL_ID)
-                                        .setSmallIcon(R.drawable.ic_menu_world_simple)
+                                        .setSmallIcon(R.drawable.favicon)
                                         .setContentTitle("COVID19 Status")
                                         .setContentText(respuesta.toString())
                                         .setAutoCancel(true)

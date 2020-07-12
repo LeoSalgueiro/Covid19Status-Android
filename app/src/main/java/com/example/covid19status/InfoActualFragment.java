@@ -68,6 +68,7 @@ public class InfoActualFragment extends Fragment {
             }
         });
         UbicacionUsuario ubicacionUsuario = UbicacionUsuarioDatabase.getInstance(getActivity().getApplicationContext()).ubicacionUsuarioDao().selectUltimaUbicacionDelUsuario();
+
         if(ubicacionUsuario != null){
             ultimaUbicacionProvId = ubicacionUsuario.getProvinciaId();
 
@@ -81,6 +82,10 @@ public class InfoActualFragment extends Fragment {
 
             imagenUbi.setImageResource(datosUbicacionActual.getImagenid());
             nombreProvUbi.setText(datosUbicacionActual.getNombre());
+
+        }
+        else{
+            vista.findViewById(R.id.cardViewUbicacionActual).setVisibility(View.GONE);
 
         }
 
