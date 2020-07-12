@@ -12,6 +12,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.covid19status.IntermedioInicioActivity;
 import com.example.covid19status.MainActivity;
 import com.example.covid19status.R;
 
@@ -59,7 +60,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                Intent intent = new Intent(SplashActivity.this, IntermedioInicioActivity.class);
                 startActivity(intent);
                 finish();
 
