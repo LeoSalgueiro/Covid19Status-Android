@@ -7,72 +7,73 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    app:cardBackgroundColor="#EAEAEA">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="409dp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
-        tools:layout_editor_absoluteX="1dp">
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="#EAEAEA">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            tools:layout_editor_absoluteX="1dp">
 
 
-        <ImageView
-            android:id="@+id/IdImagen"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="32dp"
-            android:contentDescription="@string/InfoInicio"
-            android:src="@mipmap/ic_launcher_round"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/IdImagen"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="32dp"
+                android:contentDescription="@string/InfoInicio"
+                android:src="@mipmap/ic_launcher_round"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/idProvDato"
-            android:layout_width="233dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/catamaran_medium"
-            android:foregroundGravity="center"
-            android:text="mensaje"
+            <TextView
+                android:id="@+id/idProvDato"
+                android:layout_width="233dp"
+                android:layout_height="53dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/catamaran_medium"
+                android:foregroundGravity="center"
+                android:text="mensaje"
 
-            android:textAlignment="gravity"
-            android:textColor="@color/colorPrimary"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/IdImagen"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:textAlignment="gravity"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/IdImagen"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageNext"
-            android:layout_width="34dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="16dp"
-            android:clickable="true"
-            android:contentDescription="@string/BotonNext"
-            android:focusable="auto"
-            android:focusableInTouchMode="true"
-            android:src="@drawable/ic_navigate_detalle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/idProvDato"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/imageNext"
+                android:layout_width="34dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="16dp"
+                android:clickable="true"
+                android:contentDescription="@string/BotonNext"
+                android:focusable="auto"
+                android:focusableInTouchMode="true"
+                android:src="@drawable/ic_navigate_detalle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/idProvDato"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/idDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="382dp"
+        android:layout_height="33dp"
         android:layout_marginBottom="6dp"
-        android:text="Description" />
-
-</androidx.cardview.widget.CardView>
+        android:text="Description"
+        android:visibility="visible" />
 
 </LinearLayout>

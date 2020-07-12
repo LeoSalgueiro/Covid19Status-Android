@@ -5,6 +5,11 @@ import java.io.Serializable;
 public class Provincia implements Serializable {
 
     private String nombre;
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     private String descripcion;
     private String idProvincia;
     private int imagenid;

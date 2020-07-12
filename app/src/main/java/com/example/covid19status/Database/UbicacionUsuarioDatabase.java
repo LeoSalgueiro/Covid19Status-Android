@@ -18,7 +18,7 @@ public abstract class UbicacionUsuarioDatabase extends RoomDatabase {
         if(INSTANCE == null){
             synchronized (UbicacionUsuarioDatabase.class){
                 if(INSTANCE ==null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), UbicacionUsuarioDatabase.class, "ubicacion_db").build();
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), UbicacionUsuarioDatabase.class, "ubicacion_db").allowMainThreadQueries().build();
                 }
             }
         }

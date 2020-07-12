@@ -7,18 +7,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.covid19status.Database.UbicacionUsuarioDatabase;
 import com.example.covid19status.Entidades.Provincia;
+import com.example.covid19status.EntidadesDB.UbicacionUsuario;
 import com.example.covid19status.Interfaces.IComunicaFragment;
 import com.example.covid19status.Responses.ProvinciaResponse;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,6 +34,7 @@ public class InfoActualFragment extends Fragment {
     private AdapterProvincias adapter;
     private RecyclerView recycler;
     private View vista;
+    private String ultimaUbicacionProvId;
 
     private InfoActualDetalleFragment detalleFragment;
 
@@ -39,7 +43,7 @@ public class InfoActualFragment extends Fragment {
     private IComunicaFragment interfaceComunicacionEntreFragment;
 
     public InfoActualFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -49,20 +53,49 @@ public class InfoActualFragment extends Fragment {
 
         recycler=vista.findViewById(R.id.recyclerId);
         listaProvincias = new ArrayList<>();
-        //cargar lista
         cargarLista();
-        //mostrar data
+        Collections.sort(listaProvincias, new Comparator<Provincia>() {
+            @Override
+            public int compare(Provincia o1, Provincia o2) {
+                return o1.getNombre().compareTo(o2.getNombre());
+            }
+        });
+        UbicacionUsuario ubicacionUsuario = UbicacionUsuarioDatabase.getInstance(getActivity().getApplicationContext()).ubicacionUsuarioDao().selectUltimaUbicacionDelUsuario();
+        if(ubicacionUsuario != null){
+            ultimaUbicacionProvId = ubicacionUsuario.getProvinciaId();
+            provinciaEnPrimerLugarConDescripcion(ultimaUbicacionProvId, "Segun tu ubicacion");
+        }
+
+
         mostrarData();
-
-
         return vista;
     }
 
+    private void provinciaEnPrimerLugarConDescripcion(String provId, String descrip){
+        int index = -1;
+        for (int i = 0; i < listaProvincias.size(); i++) {
+            Provincia curr = listaProvincias.get(i);
+            if(curr.getIdProvincia().equals(provId)){
+                index = i;
+                Log.d("TAG", "provinciaEnPrimerLugarConDescripcion: index " + index);
+                break;
+            }
+        }
+
+        // swap
+        if(index != -1 && listaProvincias.size() > 1){
+            Provincia aux = new Provincia(listaProvincias.get(index).getNombre(), descrip, listaProvincias.get(index).getIdProvincia(), listaProvincias.get(index).getImagenid());
+            listaProvincias.remove(index);
+            listaProvincias.add(0, aux);
+        }
+    }
+
     private void cargarLista() {
+        listaProvincias.add(new Provincia("Córdoba", "","14", R.drawable.logo_cordoba));
         listaProvincias.add(new Provincia("Buenos Aires", "","06", R.drawable.logo_buenosaires));
         listaProvincias.add(new Provincia("CABA", "","02", R.drawable.logo_caba));
         listaProvincias.add(new Provincia("Catamarca", "","10", R.drawable.logo_catamarca));
-        listaProvincias.add(new Provincia("Córdoba", "","14", R.drawable.logo_cordoba));
+        listaProvincias.add(new Provincia("Santiago del Estero", "","86", R.drawable.logo_santiago));
         listaProvincias.add(new Provincia("Corrientes", "","18", R.drawable.logo_corrientes));
         listaProvincias.add(new Provincia("Chaco", "","22", R.drawable.logo_chaco));
         listaProvincias.add(new Provincia("Chubut", "","26", R.drawable.logo_chubut));
@@ -80,7 +113,6 @@ public class InfoActualFragment extends Fragment {
         listaProvincias.add(new Provincia("San Luis", "","74", R.drawable.logo_sanluis));
         listaProvincias.add(new Provincia("Santa Cruz", "","78", R.drawable.logo_santacruz));
         listaProvincias.add(new Provincia("Santa Fe", "","82", R.drawable.logo_santafe));
-        listaProvincias.add(new Provincia("Santiago del Estero", "","86", R.drawable.logo_santiago));
         listaProvincias.add(new Provincia("Tierra del Fuego", "","94", R.drawable.logo_tierradelfuego));
         listaProvincias.add(new Provincia("Tucumán", "","90", R.drawable.logo_tucuman));
     }
@@ -106,7 +138,6 @@ public class InfoActualFragment extends Fragment {
                         if(response.isSuccessful()){
                             ProvinciaResponse respuesta = (ProvinciaResponse) response.body();
 
-                            Toast.makeText(getContext(),"Seleccionó: "+ respuesta.getTerritorioNombre(),Toast.LENGTH_LONG).show();
                     Log.v("detalle"," "+respuesta.getConfirmados());
 
                             interfaceComunicacionEntreFragment.enviarProvincia(respuesta);

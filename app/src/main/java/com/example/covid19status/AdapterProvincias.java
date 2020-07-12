@@ -1,7 +1,6 @@
 package com.example.covid19status;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +54,9 @@ public class AdapterProvincias extends RecyclerView.Adapter<AdapterProvincias.Vi
         int imag = listaProvincias.get(position).getImagenid();
         holder.provincia.setText(nombre);
         holder.descripcion.setText(descrip);
+        if(descrip.equals("")){
+            holder.descripcion.setVisibility(View.GONE);
+        }
         holder.imagen.setImageResource(imag);
     }
 
