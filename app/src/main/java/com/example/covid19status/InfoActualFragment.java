@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -36,6 +38,11 @@ public class InfoActualFragment extends Fragment {
     private View vista;
     private String ultimaUbicacionProvId;
 
+    //variables de provincia segun tu ubicacion
+    ImageView imagenUbi;
+    TextView nombreProvUbi;
+
+
     private InfoActualDetalleFragment detalleFragment;
 
 
@@ -63,7 +70,18 @@ public class InfoActualFragment extends Fragment {
         UbicacionUsuario ubicacionUsuario = UbicacionUsuarioDatabase.getInstance(getActivity().getApplicationContext()).ubicacionUsuarioDao().selectUltimaUbicacionDelUsuario();
         if(ubicacionUsuario != null){
             ultimaUbicacionProvId = ubicacionUsuario.getProvinciaId();
-            provinciaEnPrimerLugarConDescripcion(ultimaUbicacionProvId, "Segun tu ubicacion");
+
+            //busqueda de provincia segun tu ubicacion
+            int indiceProvincia = provinciaUltimaUbicacion(ultimaUbicacionProvId);
+            Provincia datosUbicacionActual = listaProvincias.get(indiceProvincia);
+
+            //datos a setear de provincnia segun tu ubicacion
+            imagenUbi = vista.findViewById(R.id.IdImagenUbicacion);
+            nombreProvUbi = vista.findViewById(R.id.idProvDatoUbicacion);
+
+            imagenUbi.setImageResource(datosUbicacionActual.getImagenid());
+            nombreProvUbi.setText(datosUbicacionActual.getNombre());
+
         }
 
 
@@ -71,7 +89,7 @@ public class InfoActualFragment extends Fragment {
         return vista;
     }
 
-    private void provinciaEnPrimerLugarConDescripcion(String provId, String descrip){
+    private int provinciaUltimaUbicacion(String provId){
         int index = -1;
         for (int i = 0; i < listaProvincias.size(); i++) {
             Provincia curr = listaProvincias.get(i);
@@ -81,13 +99,15 @@ public class InfoActualFragment extends Fragment {
                 break;
             }
         }
-
+        return index;
         // swap
+        /*
         if(index != -1 && listaProvincias.size() > 1){
             Provincia aux = new Provincia(listaProvincias.get(index).getNombre(), descrip, listaProvincias.get(index).getIdProvincia(), listaProvincias.get(index).getImagenid());
             listaProvincias.remove(index);
             listaProvincias.add(0, aux);
         }
+         */
     }
 
     private void cargarLista() {

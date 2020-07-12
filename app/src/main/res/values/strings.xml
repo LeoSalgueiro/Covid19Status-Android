@@ -67,4 +67,5 @@ Aquí se explicaran para que sirven cada una de esas opciones.
     <string name="BotonNext">botonNext</string>
     <string name="channel_name">Notificaciones principales</string>
     <string name="channel_description">Notificaciones periodicas con datos de COVID19 conformes a tu ubicación</string>
+    <string name="guardarBtnPrimeraVezInicio">Guardar</string>
 </resources>

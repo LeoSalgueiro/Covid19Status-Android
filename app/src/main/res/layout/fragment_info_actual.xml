@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/master"
     android:layout_width="match_parent"
@@ -8,10 +9,88 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardView2"
+        android:layout_width="411dp"
+        android:layout_height="97dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="#EAEAEA"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/IdImagenUbicacion"
+            android:layout_width="68dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="24dp"
+            android:contentDescription="@string/InfoInicio"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/idProvDatoUbicacion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/idProvDatoUbicacion"
+            android:layout_width="239dp"
+            android:layout_height="50dp"
+
+            android:fontFamily="@font/catamaran_medium"
+            android:foregroundGravity="center"
+            android:text="mensaje"
+
+
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageNext"
+            app:layout_constraintStart_toEndOf="@+id/IdImagenUbicacion"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageNext"
+            android:layout_width="32dp"
+            android:layout_height="35dp"
+            android:clickable="true"
+            android:contentDescription="@string/BotonNext"
+            android:focusable="auto"
+            android:focusableInTouchMode="true"
+            android:src="@drawable/ic_navigate_detalle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/idProvDatoUbicacion"
+            app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/idDescriptionUbicacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/catamaran_medium"
+                android:text="Segun tu ubicación"
+                android:textStyle="italic"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageNext"
+                app:layout_constraintHorizontal_bias="0.81"
+                app:layout_constraintStart_toEndOf="@+id/idProvDatoUbicacion"
+                app:layout_constraintTop_toBottomOf="@+id/idProvDatoUbicacion" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id = "@+id/recyclerId"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:id="@+id/recyclerId"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

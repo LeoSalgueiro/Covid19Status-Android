@@ -108,10 +108,10 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
                 if(location != null){
                     // tenemos la posicion
                     Log.d(TAG, "onSuccess" + location.toString());
-                    Log.d(TAG, "onSuccess latitude" + location.getLatitude());
+                    Log.d(TAG, "onSuccess latitude" + location.getLatitude());//-27.2741;-66.7529
                     Log.d(TAG, "onSuccess longitude" + location.getLongitude());
 
-                    Call<UbicacionResponse> call = ArgGeorefHttpClient.getGeorefService().enriquecerUbicacion(-27.2741, -66.7529); // catamarca // location.getLatitude(), location.getLongitude()
+                    Call<UbicacionResponse> call = ArgGeorefHttpClient.getGeorefService().enriquecerUbicacion(-27.8059487, -64.3357153); // catamarca // location.getLatitude(), location.getLongitude()
                     call.enqueue(new Callback<UbicacionResponse>() {
                         @Override
                         public void onResponse(Call call, Response response) {
