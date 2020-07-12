@@ -3,25 +3,22 @@ package com.example.covid19status;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.covid19status.Entidades.Provincia;
 import com.example.covid19status.Interfaces.IComunicaFragment;
-import com.example.covid19status.Interfaces.IPeticiones;
 import com.example.covid19status.Responses.ProvinciaResponse;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -102,8 +99,6 @@ public class InfoActualFragment extends Fragment {
                 Log.v("Provincia: ", nombre);
                 //Toast.makeText(getContext(),"Seleccionó: "+ nombre,Toast.LENGTH_SHORT).show();
                 //interfaceComunicacionEntreFragment.enviarProvincia(listaProvincias.get(recycler.getChildAdapterPosition(v)));
-
-
                 Call <ProvinciaResponse> call = ApiClient.getApiService().getProvinciaId(idProvin);
                 call.enqueue(new  Callback <ProvinciaResponse>() {
                     @Override

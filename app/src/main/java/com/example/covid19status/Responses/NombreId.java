@@ -10,4 +10,12 @@ public class NombreId {
     public String getNombre() {
         return nombre;
     }
+
+    @Override
+    public String toString() {
+        return "NombreId{" +
+                "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
+                '}';
+    }
 }

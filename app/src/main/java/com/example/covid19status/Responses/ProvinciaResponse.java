@@ -1,8 +1,7 @@
 package com.example.covid19status.Responses;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.util.Map;
 
 public class ProvinciaResponse implements Serializable {
 
@@ -59,5 +58,19 @@ public class ProvinciaResponse implements Serializable {
 
     public void setMuertes(Object Muertes) {
         this.Muertes = Muertes;
+    }
+
+    @Override
+    public String toString() {
+        return "ProvinciaResponse{" +
+                "TerritorioID='" + TerritorioID + '\'' +
+                ", TerritorioNombre='" + TerritorioNombre + '\'' +
+                ", TerritorioTipo='" + TerritorioTipo + '\'' +
+                ", Fecha='" + Fecha + '\'' +
+                ", Nuevos Confirmados=" + ((Map)Confirmados).get("Nuevos") +
+                ", Total Confirmados=" + ((Map)Confirmados).get("Total") +
+                ", Nuevas Muertes=" + ((Map)Confirmados).get("Nuevos") +
+                ", Total Muertes=" + ((Map)Confirmados).get("Total") +
+                '}';
     }
 }

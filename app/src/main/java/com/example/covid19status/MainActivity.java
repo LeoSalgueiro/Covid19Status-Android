@@ -1,16 +1,21 @@
 package com.example.covid19status;
 
 import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,19 +31,20 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.covid19status.Database.UbicacionUsuarioDatabase;
 import com.example.covid19status.EntidadesDB.UbicacionUsuario;
 import com.example.covid19status.Interfaces.IComunicaFragment;
+import com.example.covid19status.JobServices.NotificacionJobService;
 import com.example.covid19status.Responses.ProvinciaResponse;
 import com.example.covid19status.Responses.UbicacionResponse;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.example.covid19status.JobServices.NotificacionJobService.CHANNEL_ID;
 
 public class MainActivity extends AppCompatActivity implements IComunicaFragment{
 
@@ -52,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
     // ubicacion
     private FusedLocationProviderClient fusedLocationClient;
     int LOCATION_REQUEST_CODE = 1337;
+    public static final int ID_SERVICIO = 123;
+
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -76,7 +84,8 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
         NavigationUI.setupWithNavController(navigationView, navController);
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
+        createNotificationChannel();
+        registerJob();
         //master = new InfoActualFragment();
         //getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout,master).commit();
     }
@@ -103,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
                     Log.d(TAG, "onSuccess latitude" + location.getLatitude());
                     Log.d(TAG, "onSuccess longitude" + location.getLongitude());
 
-                    Call<UbicacionResponse> call = ArgGeorefHttpClient.getGeorefService().enriquecerUbicacion(-27.2741, -66.7529); // catamarca
+                    Call<UbicacionResponse> call = ArgGeorefHttpClient.getGeorefService().enriquecerUbicacion(-27.2741, -66.7529); // catamarca // location.getLatitude(), location.getLongitude()
                     call.enqueue(new Callback<UbicacionResponse>() {
                         @Override
                         public void onResponse(Call call, Response response) {
@@ -230,5 +239,41 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
             }
         });
         thread.start();
+    }
+
+    private void registerJob() {
+        ComponentName componentName = new ComponentName(getApplicationContext(), NotificacionJobService.class);
+        JobInfo info;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            info = new JobInfo.Builder(ID_SERVICIO, componentName)
+                    .setPeriodic(50000)
+                    .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                    .setImportantWhileForeground(true)
+                    .setPersisted(true)
+                    .build();
+            JobScheduler jobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+            int resultado = jobScheduler.schedule(info);
+            if(resultado == JobScheduler.RESULT_SUCCESS){
+                Log.d(TAG, "Job schedule result: success");
+            } else {
+                Log.d(TAG, "Job schedule result: error");
+            }
+        }
+    }
+
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.channel_name);
+            String description = getString(R.string.channel_description);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 }

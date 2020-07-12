@@ -18,4 +18,14 @@ public class Ubicacion {
     public NombreId getProvincia() {
         return provincia;
     }
+
+    @Override
+    public String toString() {
+        return "Ubicacion{" +
+                "departamento=" + departamento.toString() +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                ", provincia=" + provincia.toString() +
+                '}';
+    }
 }
