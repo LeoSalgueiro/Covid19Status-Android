@@ -14,8 +14,6 @@ import com.example.covid19status.EntidadesDB.UbicacionUsuario;
 import com.example.covid19status.R;
 import com.example.covid19status.Responses.ProvinciaResponse;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -61,12 +59,13 @@ public class NotificacionJobService extends JobService {
                                         .setSmallIcon(R.drawable.ic_menu_world_simple)
                                         .setContentTitle("COVID19 Status")
                                         .setContentText(respuesta.toString())
+                                        .setAutoCancel(true)
                                         .setStyle(new NotificationCompat.BigTextStyle()
                                                 .bigText(respuesta.toString()))
                                         .setPriority(NotificationCompat.PRIORITY_DEFAULT);
                                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
                                 // notificationId is a unique int for each notification that you must define
-                                notificationManager.notify(ThreadLocalRandom.current().nextInt(1, 9999 + 1), builder.build());
+                                notificationManager.notify((int)System.currentTimeMillis(), builder.build());
                             }
                         }
 

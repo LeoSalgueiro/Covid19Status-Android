@@ -242,18 +242,19 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
     }
 
     private void registerJob() {
-        ComponentName componentName = new ComponentName(getApplicationContext(), NotificacionJobService.class);
-        JobInfo info;
-        //if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
-        info = new JobInfo.Builder(ID_SERVICIO, componentName)
-                .setPeriodic(50000)
-                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
-                .build();
-        //} else {
-
-        //}
+        ComponentName serviceName = new ComponentName(getApplicationContext(), NotificacionJobService.class);
+        JobInfo jobInfo;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            jobInfo = new JobInfo.Builder(ID_SERVICIO, serviceName)
+                    .setPeriodic(900000)
+                    .build();
+        }else{
+            jobInfo = new JobInfo.Builder(ID_SERVICIO, serviceName)
+                    .setPeriodic(1000)
+                    .build();
+        }
         JobScheduler jobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
-        int resultado = jobScheduler.schedule(info);
+        int resultado = jobScheduler.schedule(jobInfo);
         if(resultado == JobScheduler.RESULT_SUCCESS){
             Log.d(TAG, "Job schedule result: success");
         } else {
