@@ -3,6 +3,7 @@ package com.example.covid19status.Splash;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -16,12 +17,15 @@ import com.example.covid19status.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 5000;
+    private static int SPLASH_SCREEN = 3500;
 
     //variables
     Animation topAnim, bottomAnim;
     ImageView imagen;
     TextView titulo, subtitulo;
+
+    //variables sonido
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,14 @@ public class SplashActivity extends AppCompatActivity {
         titulo.setAnimation(bottomAnim);
         subtitulo.setAnimation(bottomAnim);
 
+        //sonido de inicio
+
+        mp = MediaPlayer.create(getBaseContext(), R.raw.puerta_auto); /*Gets your
+        soundfile from res/raw/sound.ogg */
+        mp.start(); //Starts your sound
+
+
+
         //manejador para cambiar a la actividad principal
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -55,4 +67,14 @@ public class SplashActivity extends AppCompatActivity {
         }, SPLASH_SCREEN);
 
     }
+
+
+
+        protected void onStop() {
+            super.onStop();
+            if(mp.isPlaying()){ //Must check if it's playing, otherwise it may be a NPE
+                mp.pause(); //Pauses the sound
+                //ur.removeCallbacks(myRunnable);
+            }
+        }
 }

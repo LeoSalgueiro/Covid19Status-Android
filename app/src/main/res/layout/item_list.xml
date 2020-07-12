@@ -35,11 +35,15 @@
 
         <TextView
             android:id="@+id/idProvDato"
-            android:layout_width="231dp"
-            android:layout_height="32dp"
+            android:layout_width="233dp"
+            android:layout_height="53dp"
             android:layout_marginStart="16dp"
+            android:fontFamily="@font/catamaran_medium"
             android:foregroundGravity="center"
             android:text="mensaje"
+
+            android:textAlignment="gravity"
+            android:textColor="@color/colorPrimary"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/IdImagen"

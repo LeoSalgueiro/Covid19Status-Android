@@ -21,70 +21,95 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
+                android:fontFamily="@font/catamaran_semibold"
                 android:text="@string/SobreNosotros_quienesSomos_titulo"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
-                android:text="@string/SobreNosotros_quienesSomos" />
+                android:fontFamily="@font/catamaran_medium"
+                android:text="@string/SobreNosotros_quienesSomos"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40sp"
+                android:fontFamily="@font/catamaran_semibold"
                 android:text="@string/SobreNosotros_nuesrtoObjetivo_titulo"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
-                android:text="@string/SobreNosotros_nuestroObjetivo" />
+                android:fontFamily="@font/catamaran_medium"
+                android:text="@string/SobreNosotros_nuestroObjetivo"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40sp"
+                android:fontFamily="@font/catamaran_semibold"
                 android:text="@string/SobreNosotros_dondeNosUbicamos_titulo"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
-                android:text="@string/SobreNosotros_dondeNosUbicamos" />
+                android:fontFamily="@font/catamaran_medium"
+                android:text="@string/SobreNosotros_dondeNosUbicamos"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40sp"
+                android:fontFamily="@font/catamaran_semibold"
                 android:text="@string/SobreNosotros_FundadoPor_titulo"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
+                android:fontFamily="@font/catamaran_semibold"
                 android:text="@string/mailfede"
+                android:textColor="#454545"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4sp"
+                android:fontFamily="@font/catamaran_semibold"
                 android:text="@string/mailleo"
+                android:textColor="#454545"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20sp"
-                    android:text="@string/SobreNosotros_compartenos_titulo"
-                    android:textSize="13dp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:fontFamily="@font/catamaran_semibold"
+                android:text="@string/SobreNosotros_compartenos_titulo"
+                android:textSize="13dp"
+                android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btnCalificanos"

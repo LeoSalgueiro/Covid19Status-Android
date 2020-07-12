@@ -39,6 +39,16 @@
       </value>
     </option>
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/bala_piso_1.ogg" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/oveja_1.ogg" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/puerta_auto.ogg" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/puerta_llave.ogg" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/scanner.ogg" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/ting.ogg" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/tos1.ogg" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/tos2.ogg" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

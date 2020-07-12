@@ -30,7 +30,10 @@
         android:layout_height="wrap_content"
 
         android:layout_margin="20dp"
-        app:cardBackgroundColor="#D1CFCF"
+        android:background="#DF0000"
+        android:backgroundTint="#E8E7E7"
+        app:cardBackgroundColor="#DDDDDD"
+        app:cardCornerRadius="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
@@ -51,25 +54,28 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
 
+                android:fontFamily="@font/catamaran_black"
                 android:text="Provincia"
-                android:textSize="30sp"
+                android:textColor="@color/colorPrimary"
+
+                android:textSize="28sp"
                 android:textStyle="bold"
 
                 app:layout_constraintBottom_toBottomOf="@+id/detalleNombreProvincia"
-                app:layout_constraintStart_toStartOf="@+id/toolbar2"
-
-                />
+                app:layout_constraintStart_toStartOf="@+id/toolbar2" />
 
             <TextView
                 android:id="@+id/detalleNombreProvincia"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="33dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
 
+                android:fontFamily="@font/catamaran_medium"
                 android:text="detalleNombreProvincia"
-                android:textSize="24sp"
 
+                android:textColor="#272727"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosTitulo"
                 app:layout_constraintStart_toStartOf="@+id/detalleProvinciaTitulo" />
 
@@ -80,10 +86,12 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
 
+                android:fontFamily="@font/catamaran_black"
                 android:text="Confirmados"
-                android:textSize="30sp"
-                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
 
+                android:textSize="28sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosNuevos"
                 app:layout_constraintStart_toStartOf="@+id/detalleNombreProvincia" />
 
@@ -95,10 +103,12 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
 
+                android:fontFamily="@font/catamaran_medium"
                 android:text="DetalleConfirmados Nuevas"
-                android:textSize="24sp"
 
 
+                android:textColor="#272727"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosTotal"
                 app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosTitulo" />
 
@@ -109,10 +119,12 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
 
+                android:fontFamily="@font/catamaran_medium"
                 android:text="Detalle Confirmados Total"
-                android:textSize="24sp"
 
 
+                android:textColor="#272727"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesNuevos"
                 app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosNuevos" />
 
@@ -124,10 +136,12 @@
                 android:layout_marginBottom="6dp"
 
 
+                android:fontFamily="@font/catamaran_black"
                 android:text="Muertes"
-                android:textSize="30sp"
-                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
 
+                android:textSize="28sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesNuevos"
                 app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosTotal" />
 
@@ -138,9 +152,11 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
 
+                android:fontFamily="@font/catamaran_medium"
                 android:text="Detalle Muertes Nuevas"
-                android:textSize="24sp"
 
+                android:textColor="#272727"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesTotal"
                 app:layout_constraintStart_toStartOf="@+id/detalleMuertesTitulo" />
 
@@ -153,30 +169,34 @@
                 android:layout_marginBottom="6dp"
 
 
+                android:fontFamily="@font/catamaran_medium"
                 android:text="Detalle Muertes Total"
-                android:textSize="24sp"
 
+                android:textColor="#272727"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/ultimaActualizacionTitulo"
                 app:layout_constraintStart_toStartOf="@+id/detalleMuertesNuevos" />
 
 
             <TextView
                 android:id="@+id/ultimaActualizacionTitulo"
-                android:layout_width="wrap_content"
+                android:layout_width="148dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
 
+                android:fontFamily="@font/catamaran_medium"
                 android:text="Ultima Actualización"
                 android:textSize="16sp"
                 android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/ultimaActualizacion"
-                android:layout_width="wrap_content"
+                android:layout_width="104dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
+                android:fontFamily="@font/catamaran_medium"
                 android:text="YYYY-MM-DD"
                 android:textColor="#3E3E3E"
                 android:textSize="16sp"

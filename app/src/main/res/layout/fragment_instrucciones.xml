@@ -16,79 +16,108 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Instructivo_resumen_titulo"
-        android:layout_marginBottom="10dp"
-        android:textSize="18sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Instructivo_resumen"
-        android:layout_marginBottom="30dp"
-        android:textSize="15sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Instructivo_menu_titulo"
-        android:layout_marginBottom="10dp"
-        android:textSize="18dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Instructivo_menu"
-        android:layout_marginBottom="30dp"
-        android:textSize="15dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Instructivo_opcion_1_titulo"
-        android:layout_marginBottom="10dp"
-        android:textSize="18sp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Instructivo_opcion_1"
-        android:layout_marginBottom="30dp"
-        android:textSize="15sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/catamaran_semibold"
+        android:text="@string/Instructivo_resumen_titulo"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/catamaran_medium"
+        android:text="@string/Instructivo_resumen"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/catamaran_semibold"
+        android:text="@string/Instructivo_menu_titulo"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/catamaran_medium"
+        android:text="@string/Instructivo_menu"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/catamaran_semibold"
+        android:text="@string/Instructivo_opcion_1_titulo"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/catamaran_medium"
+        android:text="@string/Instructivo_opcion_1"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/catamaran_semibold"
         android:text="@string/Instructivo_opcion_2_titulo"
-        android:layout_marginBottom="10dp"
-        android:textSize="18sp"/>
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/catamaran_medium"
         android:text="@string/Instructivo_opcion_2"
-        android:layout_marginBottom="30dp"
-        android:textSize="15sp"/>
+        android:textSize="15sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/catamaran_semibold"
         android:text="@string/Instructivo_opcion_3_titulo"
-        android:layout_marginBottom="10dp"
-        android:textSize="18sp"/>
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/catamaran_medium"
         android:text="@string/Instructivo_opcion_3"
-        android:layout_marginBottom="30dp"
-        android:textSize="15sp"/>
+        android:textSize="15sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Instructivo_opcion_4_titulo"
         android:layout_marginBottom="10dp"
-        android:textSize="18sp"/>
+        android:fontFamily="@font/catamaran_semibold"
+        android:text="@string/Instructivo_opcion_4_titulo"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Instructivo_opcion_4"
         android:layout_marginBottom="30dp"
-        android:textSize="15sp"/>
+        android:fontFamily="@font/catamaran_medium"
+        android:text="@string/Instructivo_opcion_4"
+        android:textSize="15sp" />
 
 </LinearLayout>
     </androidx.core.widget.NestedScrollView>
