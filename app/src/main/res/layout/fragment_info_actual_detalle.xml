@@ -22,197 +22,213 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="364dp"
-        android:layout_height="wrap_content"
-
-        android:layout_margin="20dp"
-        android:background="#DF0000"
-        android:backgroundTint="#E8E7E7"
-        app:cardBackgroundColor="#DDDDDD"
-        app:cardCornerRadius="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="0.143">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="20dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/detalleProvinciaTitulo"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="364dp"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="20dp"
+                android:background="#DF0000"
+                android:backgroundTint="#E8E7E7"
+                app:cardBackgroundColor="#DDDDDD"
+                app:cardCornerRadius="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.489"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+                app:layout_constraintVertical_bias="0.143">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/detalleProvinciaTitulo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+
+                        android:fontFamily="@font/catamaran_black"
+                        android:text="Provincia"
+                        android:textColor="@color/colorPrimary"
+
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+
+                        app:layout_constraintBottom_toBottomOf="@+id/detalleNombreProvincia"
+                        app:layout_constraintStart_toStartOf="@+id/toolbar2" />
+
+                    <TextView
+                        android:id="@+id/detalleNombreProvincia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+
+                        android:fontFamily="@font/catamaran_medium"
+                        android:text="detalleNombreProvincia"
+
+                        android:textColor="#272727"
+                        android:textSize="22sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosTitulo"
+                        app:layout_constraintStart_toStartOf="@+id/detalleProvinciaTitulo" />
+
+                    <TextView
+                        android:id="@+id/detalleConfirmadosTitulo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+
+                        android:fontFamily="@font/catamaran_black"
+                        android:text="Confirmados"
+                        android:textColor="@color/colorPrimary"
+
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosNuevos"
+                        app:layout_constraintStart_toStartOf="@+id/detalleNombreProvincia" />
+
+
+                    <TextView
+                        android:id="@+id/detalleConfirmadosNuevos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+
+                        android:fontFamily="@font/catamaran_medium"
+                        android:text="DetalleConfirmados Nuevas"
+
+
+                        android:textColor="#272727"
+                        android:textSize="22sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosTotal"
+                        app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosTitulo" />
+
+                    <TextView
+                        android:id="@+id/detalleConfirmadosTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+
+                        android:fontFamily="@font/catamaran_medium"
+                        android:text="Detalle Confirmados Total"
+
+
+                        android:textColor="#272727"
+                        android:textSize="22sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesNuevos"
+                        app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosNuevos" />
+
+                    <TextView
+                        android:id="@+id/detalleMuertesTitulo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+
+
+                        android:fontFamily="@font/catamaran_black"
+                        android:text="Muertes"
+                        android:textColor="@color/colorPrimary"
+
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesNuevos"
+                        app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosTotal" />
+
+                    <TextView
+                        android:id="@+id/detalleMuertesNuevos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+
+                        android:fontFamily="@font/catamaran_medium"
+                        android:text="Detalle Muertes Nuevas"
+
+                        android:textColor="#272727"
+                        android:textSize="22sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesTotal"
+                        app:layout_constraintStart_toStartOf="@+id/detalleMuertesTitulo" />
+
+
+                    <TextView
+                        android:id="@+id/detalleMuertesTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+
+
+                        android:fontFamily="@font/catamaran_medium"
+                        android:text="Detalle Muertes Total"
+
+                        android:textColor="#272727"
+                        android:textSize="22sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/ultimaActualizacionTitulo"
+                        app:layout_constraintStart_toStartOf="@+id/detalleMuertesNuevos" />
+
+
+                    <TextView
+                        android:id="@+id/ultimaActualizacionTitulo"
+                        android:layout_width="148dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+
+                        android:fontFamily="@font/catamaran_medium"
+                        android:text="Ultima Actualización"
+                        android:textSize="16sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/ultimaActualizacion"
+                        android:layout_width="104dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="@font/catamaran_medium"
+                        android:text="YYYY-MM-DD"
+                        android:textColor="#3E3E3E"
+                        android:textSize="16sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/detalleBtnCompartir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-
-                android:fontFamily="@font/catamaran_black"
-                android:text="Provincia"
-                android:textColor="@color/colorPrimary"
-
-                android:textSize="28sp"
-                android:textStyle="bold"
-
-                app:layout_constraintBottom_toBottomOf="@+id/detalleNombreProvincia"
-                app:layout_constraintStart_toStartOf="@+id/toolbar2" />
-
-            <TextView
-                android:id="@+id/detalleNombreProvincia"
-                android:layout_width="wrap_content"
-                android:layout_height="33dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-
-                android:fontFamily="@font/catamaran_medium"
-                android:text="detalleNombreProvincia"
-
-                android:textColor="#272727"
-                android:textSize="22sp"
-                app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosTitulo"
-                app:layout_constraintStart_toStartOf="@+id/detalleProvinciaTitulo" />
-
-            <TextView
-                android:id="@+id/detalleConfirmadosTitulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-
-                android:fontFamily="@font/catamaran_black"
-                android:text="Confirmados"
-                android:textColor="@color/colorPrimary"
-
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosNuevos"
-                app:layout_constraintStart_toStartOf="@+id/detalleNombreProvincia" />
-
-
-            <TextView
-                android:id="@+id/detalleConfirmadosNuevos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-
-                android:fontFamily="@font/catamaran_medium"
-                android:text="DetalleConfirmados Nuevas"
-
-
-                android:textColor="#272727"
-                android:textSize="22sp"
-                app:layout_constraintBottom_toBottomOf="@+id/detalleConfirmadosTotal"
-                app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosTitulo" />
-
-            <TextView
-                android:id="@+id/detalleConfirmadosTotal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-
-                android:fontFamily="@font/catamaran_medium"
-                android:text="Detalle Confirmados Total"
-
-
-                android:textColor="#272727"
-                android:textSize="22sp"
-                app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesNuevos"
-                app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosNuevos" />
-
-            <TextView
-                android:id="@+id/detalleMuertesTitulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-
-
-                android:fontFamily="@font/catamaran_black"
-                android:text="Muertes"
-                android:textColor="@color/colorPrimary"
-
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesNuevos"
-                app:layout_constraintStart_toStartOf="@+id/detalleConfirmadosTotal" />
-
-            <TextView
-                android:id="@+id/detalleMuertesNuevos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-
-                android:fontFamily="@font/catamaran_medium"
-                android:text="Detalle Muertes Nuevas"
-
-                android:textColor="#272727"
-                android:textSize="22sp"
-                app:layout_constraintBottom_toBottomOf="@+id/detalleMuertesTotal"
-                app:layout_constraintStart_toStartOf="@+id/detalleMuertesTitulo" />
-
-
-            <TextView
-                android:id="@+id/detalleMuertesTotal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-
-
-                android:fontFamily="@font/catamaran_medium"
-                android:text="Detalle Muertes Total"
-
-                android:textColor="#272727"
-                android:textSize="22sp"
-                app:layout_constraintBottom_toBottomOf="@+id/ultimaActualizacionTitulo"
-                app:layout_constraintStart_toStartOf="@+id/detalleMuertesNuevos" />
-
-
-            <TextView
-                android:id="@+id/ultimaActualizacionTitulo"
-                android:layout_width="148dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-
-                android:fontFamily="@font/catamaran_medium"
-                android:text="Ultima Actualización"
-                android:textSize="16sp"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/ultimaActualizacion"
-                android:layout_width="104dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-                android:fontFamily="@font/catamaran_medium"
-                android:text="YYYY-MM-DD"
-                android:textColor="#3E3E3E"
-                android:textSize="16sp"
-                android:textStyle="italic" />
+                android:layout_marginLeft="170dp"
+                android:text="Compartir Informacion"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.889"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView"
+                app:layout_constraintVertical_bias="0.407" />
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/detalleBtnCompartir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Compartir Informacion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.889"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.407" />
-
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

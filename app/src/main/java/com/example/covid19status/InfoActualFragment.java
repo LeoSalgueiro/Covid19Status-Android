@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,7 +42,7 @@ public class InfoActualFragment extends Fragment {
     //variables de provincia segun tu ubicacion
     ImageView imagenUbi;
     TextView nombreProvUbi;
-
+    ConstraintLayout card;
 
     private InfoActualDetalleFragment detalleFragment;
 
@@ -74,14 +75,22 @@ public class InfoActualFragment extends Fragment {
 
             //busqueda de provincia segun tu ubicacion
             int indiceProvincia = provinciaUltimaUbicacion(ultimaUbicacionProvId);
-            Provincia datosUbicacionActual = listaProvincias.get(indiceProvincia);
+            final Provincia datosUbicacionActual = listaProvincias.get(indiceProvincia);
 
             //datos a setear de provincnia segun tu ubicacion
+            card = vista.findViewById(R.id.cardViewUbicacionActual);
             imagenUbi = vista.findViewById(R.id.IdImagenUbicacion);
             nombreProvUbi = vista.findViewById(R.id.idProvDatoUbicacion);
 
             imagenUbi.setImageResource(datosUbicacionActual.getImagenid());
             nombreProvUbi.setText(datosUbicacionActual.getNombre());
+
+            card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mostrarDataUbicacionActual(datosUbicacionActual.getIdProvincia());
+                }
+            });
 
         }
         else{
@@ -179,6 +188,34 @@ public class InfoActualFragment extends Fragment {
             }
         });
     }
+
+    public void mostrarDataUbicacionActual(String idProv){
+
+                String idProvincia = idProv;
+
+                Call <ProvinciaResponse> call = ApiClient.getApiService().getProvinciaId(idProvincia);
+                call.enqueue(new  Callback <ProvinciaResponse>() {
+                    @Override
+                    public void onResponse(Call call, @NonNull Response response) {
+                        if(response.isSuccessful()){
+                            ProvinciaResponse respuesta = (ProvinciaResponse) response.body();
+
+                            Log.v("detalle"," "+respuesta.getConfirmados());
+
+                            interfaceComunicacionEntreFragment.enviarProvincia(respuesta);
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        Log.v("toastnot", " falle");
+                    }
+                });
+    }
+
+
+
 
 
     //para la comunicacion

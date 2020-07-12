@@ -14,7 +14,7 @@
     <string name="menu_sobre_nosotros">Sobre Nosotros</string>
 
     <!--TODO: Informacion resumen de presentacion, la debe cargar un fragment al principio-->
-    <string name="resume">Bienvenido a Covid-19 Status para móvil. Aquí podrás consultar, principalmente, la información sobre el estado actual deL Covid-19 en Argentina. Además, podras consultar informacion internacional, compartir con tus amigos información y mucho mas...</string>
+    <string name="resume">Bienvenido a Covid-19 Status para móvil. Aquí podrás consultar, principalmente, la información sobre el estado actual del Covid-19 en Argentina. Además, podras consultar información internacional, compartir con tus amigos información y mucho mas...</string>
     <string name="InfoInicio">Resumen</string>
 
     <!--TODO: Strings de instructivo-->

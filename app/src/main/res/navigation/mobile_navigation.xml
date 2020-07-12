@@ -2,9 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@+id/nav_info_actual"> <!--Esto debe apuntar a un iniciador -->
+    app:startDestination="@+id/inicioApp"> <!--Esto debe apuntar a un iniciador -->
 
-
+    <fragment
+        android:id="@+id/inicioApp"
+        android:name="com.example.covid19status.InicioFragment"
+        android:label="Resumen"
+        tools:layout="@layout/fragment_inicio"/>
 
     <fragment
         android:id="@+id/nav_info_actual"

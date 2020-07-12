@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
         navigationView.setItemIconTintList(null);//esto es para que los iconos se vean bien
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.inicioApp,
                  R.id.nav_info_actual, R.id.nav_instrucciones, R.id.nav_internacional, R.id.nav_sobre_nosotros)
                 .setDrawerLayout(drawer)
                 .build();

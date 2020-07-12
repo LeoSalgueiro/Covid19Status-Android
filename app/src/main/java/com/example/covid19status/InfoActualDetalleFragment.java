@@ -1,5 +1,7 @@
 package com.example.covid19status;
 
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.covid19status.Responses.ProvinciaResponse;
@@ -31,6 +34,7 @@ public class InfoActualDetalleFragment extends Fragment {
     TextView muertosNuevos;
     TextView muertosTotal;
     TextView fecha;
+    Button btnDetalleACompartir;
 
 
 
@@ -74,7 +78,9 @@ public class InfoActualDetalleFragment extends Fragment {
         muertosNuevos = vista.findViewById(R.id.detalleMuertesNuevos);
         muertosTotal = vista.findViewById(R.id.detalleMuertesTotal);
         fecha = vista.findViewById(R.id.ultimaActualizacion);
-        
+        btnDetalleACompartir = vista.findViewById(R.id.detalleBtnCompartir);
+
+
         Bundle objetoRecibido = getArguments();
         ProvinciaResponse provinciaRecibido = null;
 
@@ -101,7 +107,19 @@ public class InfoActualDetalleFragment extends Fragment {
             muertosTotal.setText("Total: "+muerTotal);
             fecha.setText(fechaNueva);
 
+
+            //detalle Compartir
+
+
         }
         return vista;
+    }
+
+
+
+    private void crearPDF(){
+        PdfDocument pdfAEnviar = new PdfDocument();
+        Paint myPaint = new Paint();
+
     }
 }
