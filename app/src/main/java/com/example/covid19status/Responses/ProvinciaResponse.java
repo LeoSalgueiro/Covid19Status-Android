@@ -60,6 +60,12 @@ public class ProvinciaResponse implements Serializable {
         this.Muertes = Muertes;
     }
 
+    public String toStringNotification(String formattableMessage){
+        return String.format(formattableMessage,
+                this.getTerritorioNombre(), ((Double)((Map)this.Confirmados).get("Nuevos")).intValue()
+                , ((Double)((Map)this.Muertes).get("Nuevos")).intValue(), ((Double) ((Map)this.Confirmados).get("Total")).intValue(), ((Double)((Map)this.Muertes).get("Total")).intValue());
+    }
+
     @Override
     public String toString() {
         return "ProvinciaResponse{" +

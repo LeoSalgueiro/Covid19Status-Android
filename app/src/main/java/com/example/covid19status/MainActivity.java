@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
         if(id == R.id.share){
             Intent intent = new Intent (Intent.ACTION_SEND);
             intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT, Uri.parse("Comparte Covid-19 Status con tu amigos con el siguiente link: "+"http://play.google.com/store/apps/details?id="+ getPackageName()).toString());
+            intent.putExtra(Intent.EXTRA_TEXT, Uri.parse(getString(R.string.shareapp_message)+"http://play.google.com/store/apps/details?id="+ getPackageName()).toString());
             startActivity(Intent.createChooser(intent, "CompartiendoApp"));
         }
         if(id==16908332){// este es el id del submenu, si no esta esto, no funca el boton

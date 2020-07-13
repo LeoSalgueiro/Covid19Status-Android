@@ -1,0 +1,76 @@
+<resources>
+    <!--info del header-->
+    <string name="app_name">Covid19Status</string>
+    <string name="nav_header_title">Covid-19 Status</string>
+    <string name="nav_header_subtitle">Updated information about COVID19 in Argentina</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_share">Share app</string>
+
+    <!--Labels de toolbars de los diferentes fragments-->
+    <string name="menu_info_actual">Current information</string>
+    <string name="menu_instrucciones">Instructions</string>
+    <string name="menu_info_internacional">International Information</string>
+    <string name="menu_sobre_nosotros">About us</string>
+
+    <!--TODO: Informacion resumen de presentacion, la debe cargar un fragment al principio-->
+    <string name="resume">Welcome to COVID19 Status mobile. Here you can consult the actual status of Covid19 in Argentina. You could also consult International Information and share all that stuff with your friends and much more...</string>
+    <string name="InfoInicio">Summary</string>
+
+    <!--TODO: Strings de instructivo-->
+
+    <string name="Instructivo_resumen_titulo">Instructions: </string>
+    <string name="Instructivo_resumen">In Covid-19 Status we want to share with you information about your location so you can take the necessary precautions.</string>
+
+    <string name="Instructivo_menu_titulo">Lateral menu:</string>
+    <string name="Instructivo_menu">On the lateral menu you have all actions you can do with this app.
+        Here we will explain each of them to you.
+</string>
+
+    <string name="Instructivo_opcion_1_titulo">Current information:</string>
+    <string name="Instructivo_opcion_1">In Current Information, you can consult the info about a province
+        This option has two modes:
+        1-  If you has activated the geolocation, the app will show you a shortcut to your province
+        2-  If you dont have geolocation activated, anyway you can choose a province from the list.
+</string>
+
+    <string name="Instructivo_opcion_2_titulo">Instructions: </string>
+    <string name="Instructivo_opcion_2">In Instructions section we explain you the app functionalities. We would like to thank you for trust in us and we hope to help you.</string>
+
+    <string name="Instructivo_opcion_3_titulo">International Information:</string>
+    <string name="Instructivo_opcion_3">In this section, you will navigate a subsection were you could consult international information about Covid19</string>
+
+    <string name="Instructivo_opcion_4_titulo">About us:</string>
+    <string name="Instructivo_opcion_4">A lot of boring info about us. Let us take some credit !</string>
+
+
+    <!--TODO: strings para sobre nosotros fragment-->
+    <string name="SobreNosotros_quienesSomos_titulo">¿Who we are?</string>
+    <string name="SobreNosotros_quienesSomos">We are two Computer Science students of Universidad Nacional Arturo Jauretche,
+        we choosed to use our capabilities to bring you valuable information on a simple way.</string>
+
+    <string name="SobreNosotros_nuesrtoObjetivo_titulo">¿Our goal? </string>
+    <string name="SobreNosotros_nuestroObjetivo">Release fastly a service of trusted information.
+        We do it without any revenue so be kindly and say thank giving us some feedback on Play Store.</string>
+
+    <string name="SobreNosotros_dondeNosUbicamos_titulo">¿Where we are? </string>
+    <string name="SobreNosotros_dondeNosUbicamos">We are two students from Florencio Varela, Bs. As., Argentina</string>
+
+    <string name="SobreNosotros_FundadoPor_titulo">By: </string>
+    <string name="mailfede">Federico Montes de Oca: federicomdo97@gmail.com</string>
+    <string name="mailleo">Leonel Navarro: dismoi.leo@gmail.com</string>
+
+    <string name="SobreNosotros_compartenos_titulo">Loving our project?: </string>
+
+    <string name="btn_calificanos">Rate us</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="BotonNext">botonNext</string>
+    <string name="channel_name">Priincipal notifications</string>
+    <string name="channel_description">Periodic notifications with COVID19 data according to your actual location</string>
+    <string name="guardarBtnPrimeraVezInicio">Register</string>
+    <string name="shareapp_message">Share Covid-19 with your friends with the following link: </string>
+    <string name="notification_message">Now in \%s there are \%d new confirmed cases and \%d new deaths for a total of \%d confirmed cases and \%d deaths\</string>
+</resources>

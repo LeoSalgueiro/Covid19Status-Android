@@ -58,10 +58,10 @@ public class NotificacionJobService extends JobService {
                                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplication().getBaseContext(), CHANNEL_ID)
                                         .setSmallIcon(R.drawable.favicon)
                                         .setContentTitle("COVID19 Status")
-                                        .setContentText(respuesta.toString())
+                                        .setContentText(respuesta.toStringNotification(getResources().getString(R.string.notification_message)))
                                         .setAutoCancel(true)
                                         .setStyle(new NotificationCompat.BigTextStyle()
-                                                .bigText(respuesta.toString()))
+                                                .bigText(respuesta.toStringNotification(getResources().getString(R.string.notification_message))))
                                         .setPriority(NotificationCompat.PRIORITY_DEFAULT);
                                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
                                 // notificationId is a unique int for each notification that you must define
