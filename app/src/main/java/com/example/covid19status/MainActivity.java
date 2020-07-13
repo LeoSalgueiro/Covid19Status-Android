@@ -48,6 +48,7 @@ import static com.example.covid19status.JobServices.NotificacionJobService.CHANN
 
 public class MainActivity extends AppCompatActivity implements IComunicaFragment{
 
+    private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 0;
     //master detail
     InfoActualFragment master;
     InfoActualDetalleFragment detalle;
@@ -88,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
         registerJob();
         //master = new InfoActualFragment();
         //getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout,master).commit();
+
+
     }
 
     @Override
@@ -97,7 +100,11 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
             getLastLocation();
         } else {
             askLocationPermission();
+
         }
+
+
+
    }
 
     private void getLastLocation(){
@@ -153,6 +160,7 @@ public class MainActivity extends AppCompatActivity implements IComunicaFragment
             }
         }
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
